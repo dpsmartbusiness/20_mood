@@ -1,6 +1,6 @@
 # Site for the Mood
 
-[TODO. There will be project description]
+Site with jokes - [click here](https://dpsmartbusiness.github.io/mood/). If u wanna get a new joke just click on the button.
 
 # Project Goals
 
