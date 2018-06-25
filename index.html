@@ -1,25 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Настроение</title>
-  <script id="quotes_json" type="application/json">
-    [
-      {
-        "phrase": "Кукурузные хлопья - теперь без асбеста!",
-        "signature": "©Неизвестный маркетолог"
-      },
-      {
-        "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
-      },
-      {
-        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
-      },
-      {
-        "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
-      }
-    ]
-  </script>
-</head>
-<body>
-</body>
+   <head>
+      <title>Сайт для хорошего настроения</title>
+      <meta charset="utf-8">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      <style>
+         body{
+         background-color: white;
+         }
+         .well {
+         font-size: 16pt;
+         padding: 100pt;
+         background-color: #FAEBD7;
+         max-height: 250pt;
+         }
+         h1{
+         text-align: center;
+         } 
+      </style>
+   </head>
+   <body>
+      <h1>Лучшая шутка:</h1>
+      <div class="text-center well h1" id="quoteSpace"></div>
+      <div class="text-center">
+         <button type="button" onclick="showNewQuote()" class="btn btn-dark">новая лучшая шутка</button>
+      </div>
+      <script id="quotes_json" type="application/json">
+         [
+           {
+             "phrase": "Кукурузные хлопья - теперь без асбеста!",
+             "signature": "©Неизвестный маркетолог"
+           },
+           {
+             "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
+           },
+           {
+             "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
+           },
+           {
+             "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
+           },
+           {
+             "phrase": "Дни рождения – вещь очень полезная. Как утверждает статистика, чем их больше у человека, тем дольше он живет.",
+             "signature": "©Неизвестный шутник"
+           },
+           {
+             "phrase": "Россия - чемпион мира среди арабов.",
+             "signature": "©Неизвестный шутник"
+           },
+           {
+             "phrase": "Рано или поздно всё исполнится. Но будет рано... Или поздно.."
+           },
+           {
+             "phrase": "ʁɔvʎнdǝвǝdǝu dиw – ɐwʎ ɔ vǝmоɔ dиw"
+           }
+         ]
+      </script>
+      <script>
+         function showNewQuote() {
+           var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML);
+           var quote = quotes[Math.floor(Math.random()*quotes.length)];
+           document.getElementById('quoteSpace').innerHTML = quote.phrase;
+           if (quote.signature){
+             var signature = document.createElement('div');
+             document.getElementById('quoteSpace').appendChild(signature);
+             signature.innerHTML = quote.signature;
+           }
+         }
+         showNewQuote() 
+      </script>
+   </body>
 </html>
