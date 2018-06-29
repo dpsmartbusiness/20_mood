@@ -14,13 +14,13 @@
          background-color: #FAEBD7;
          max-height: 250pt;
          }
-         h1{
+         .title{
          text-align: center;
          } 
       </style>
    </head>
    <body>
-      <h1>Лучшая шутка:</h1>
+      <h1 class="title">Лучшая шутка:</h1>
       <div class="text-center well h1" id="quoteSpace"></div>
       <div class="text-center">
          <button type="button" onclick="showNewQuote()" class="btn btn-dark">новая лучшая шутка</button>
@@ -60,12 +60,13 @@
          function showNewQuote() {
            var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML);
            var quote = quotes[Math.floor(Math.random()*quotes.length)];
-           document.getElementById('quoteSpace').innerHTML = quote.phrase;
+           document.getElementById('quoteSpace').innerHTML = quote.phrase.replace("/","");
            if (quote.signature){
              var signature = document.createElement('div');
              document.getElementById('quoteSpace').appendChild(signature);
              signature.innerHTML = quote.signature;
            }
+
          }
          showNewQuote() 
       </script>
