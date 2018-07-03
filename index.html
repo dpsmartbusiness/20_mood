@@ -60,11 +60,11 @@
          function showNewQuote() {
            var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML);
            var quote = quotes[Math.floor(Math.random()*quotes.length)];
-           document.getElementById('quoteSpace').innerHTML = quote.phrase.replace("/","");
+           document.getElementById('quoteSpace').textContent = quote.phrase;
            if (quote.signature){
              var signature = document.createElement('div');
              document.getElementById('quoteSpace').appendChild(signature);
-             signature.innerHTML = quote.signature;
+             signature.textContent = quote.signature;
            }
 
          }
